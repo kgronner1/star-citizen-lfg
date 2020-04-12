@@ -7,17 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        userIsLoggedIn()
+        
         return true
     }
 
+//
+    func userIsLoggedIn() {
+            print("screenName:")
+            let ud = UserDefaults.standard.string(forKey: "screenName") ?? nil
+            print(ud)
+            if let rvc = self.window?.rootViewController {
+                if ud != nil {
+                    print("app delegate: user has logged in")
+                }
+                else {
+                    print("app delegate: user has not logged in")
+                    let vc = rvc.storyboard!.instantiateViewController(withIdentifier: "RouterLoginViewController")
+                    self.window!.rootViewController = vc
+                }
+            }
+    }
+    
+    
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

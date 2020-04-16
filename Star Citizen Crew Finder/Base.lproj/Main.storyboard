@@ -129,101 +129,136 @@
         <!--Item 2-->
         <scene sceneID="0Ca-NO-HiT">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ro1-14-Y8T" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateGroupViewController" modalPresentationStyle="fullScreen" id="ro1-14-Y8T" customClass="CreateGroupViewController" customModule="Star_Citizen_Crew_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bml-hI-Uh0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pzr-MY-edy">
-                                <rect key="frame" x="40" y="84" width="334" height="689"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hb-ij-pTV">
+                                <rect key="frame" x="20" y="104" width="103" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="DkY-th-EF3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="center" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pzr-MY-edy">
+                                <rect key="frame" x="29" y="188" width="356" height="520"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EZ6-BV-gar">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="356" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="xoM-Vv-gJu"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="1dr-0I-jnw"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="9G9-Uq-7Tv"/>
+                                            <constraint firstAttribute="height" constant="40" id="ZY1-wo-j5L"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many players do  you need in your group?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbn-d1-NS7">
-                                        <rect key="frame" x="0.0" y="40" width="334" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Uoz-UP-Jee"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="YWq-yg-d4M"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfG-2m-1I8">
-                                        <rect key="frame" x="0.0" y="100" width="334" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="tpO-So-Tij"/>
-                                        </constraints>
-                                    </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What ship are you flying?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCZ-7g-sfj">
-                                        <rect key="frame" x="0.0" y="160" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="40" width="356" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="39O-VI-wrx"/>
+                                            <constraint firstAttribute="height" constant="60" id="wsZ-zB-aEg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-qq-SKt">
-                                        <rect key="frame" x="0.0" y="200" width="334" height="60"/>
+                                        <rect key="frame" x="0.0" y="100" width="356" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="JIE-Ge-fGB"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="yg2-GW-0CC"/>
                                         </constraints>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you located?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8i-8L-Tpj">
-                                        <rect key="frame" x="0.0" y="260" width="334" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many players do you need?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeC-Eh-0yj">
+                                        <rect key="frame" x="0.0" y="160" width="356" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="EfE-iT-I98"/>
+                                            <constraint firstAttribute="height" constant="60" id="5ok-uu-Ca3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pu8-8H-56A">
+                                        <rect key="frame" x="0.0" y="220" width="356" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="SBo-D3-znm"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="ro1-14-Y8T" id="DRP-q2-e2k"/>
+                                            <outlet property="delegate" destination="ro1-14-Y8T" id="hSl-Rv-tcl"/>
+                                        </connections>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you located?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8i-8L-Tpj">
+                                        <rect key="frame" x="0.0" y="280" width="356" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="knq-Ar-WYu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYJ-Dz-fCQ">
-                                        <rect key="frame" x="0.0" y="300" width="334" height="60"/>
+                                        <rect key="frame" x="0.0" y="340" width="356" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="ukl-2v-Lh9"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="mDS-wG-dA3"/>
                                         </constraints>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKV-n1-A5z">
-                                        <rect key="frame" x="0.0" y="360" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="400" width="356" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="mQf-U8-Ndc"/>
+                                            <constraint firstAttribute="height" constant="60" id="Wz5-WI-Nls"/>
                                         </constraints>
                                         <state key="normal" title="Create Group"/>
+                                        <connections>
+                                            <action selector="createGroupButtonTapped:" destination="ro1-14-Y8T" eventType="touchUpInside" id="bYA-TE-BPF"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error creating group." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWv-fj-S6n">
-                                        <rect key="frame" x="0.0" y="400" width="334" height="289"/>
+                                        <rect key="frame" x="0.0" y="460" width="356" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="SMm-6d-2UE"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Dex-qq-SKt" firstAttribute="leading" secondItem="Pu8-8H-56A" secondAttribute="trailing" constant="-356" id="5KL-rs-E1I"/>
+                                    <constraint firstItem="qYJ-Dz-fCQ" firstAttribute="height" secondItem="Pu8-8H-56A" secondAttribute="height" id="77q-RW-lsd"/>
+                                    <constraint firstItem="Dex-qq-SKt" firstAttribute="height" secondItem="Pu8-8H-56A" secondAttribute="height" id="8NG-Wt-i7X"/>
+                                    <constraint firstItem="qYJ-Dz-fCQ" firstAttribute="centerX" secondItem="pzr-MY-edy" secondAttribute="centerX" id="EUt-As-sg0"/>
+                                    <constraint firstItem="Pu8-8H-56A" firstAttribute="centerX" secondItem="pzr-MY-edy" secondAttribute="centerX" id="QTf-bS-2mL"/>
+                                    <constraint firstItem="Dex-qq-SKt" firstAttribute="centerX" secondItem="pzr-MY-edy" secondAttribute="centerX" id="pt5-W5-Za5"/>
+                                </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hb-ij-pTV">
-                                <rect key="frame" x="40" y="55" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="UvF-CD-8we" firstAttribute="trailing" secondItem="pzr-MY-edy" secondAttribute="trailing" constant="40" id="GI9-QT-TIM"/>
-                            <constraint firstItem="pzr-MY-edy" firstAttribute="leading" secondItem="UvF-CD-8we" secondAttribute="leading" constant="40" id="Nxd-Y2-DSm"/>
-                            <constraint firstItem="pzr-MY-edy" firstAttribute="top" secondItem="UvF-CD-8we" secondAttribute="top" constant="40" id="fkn-vA-BKz"/>
-                            <constraint firstItem="UvF-CD-8we" firstAttribute="bottom" secondItem="pzr-MY-edy" secondAttribute="bottom" constant="40" id="sNC-aF-Oqz"/>
+                            <constraint firstItem="pzr-MY-edy" firstAttribute="top" secondItem="2hb-ij-pTV" secondAttribute="bottom" constant="63.5" id="0qI-tq-3YA"/>
+                            <constraint firstItem="pzr-MY-edy" firstAttribute="centerX" secondItem="bml-hI-Uh0" secondAttribute="centerX" id="L21-0G-eze"/>
+                            <constraint firstItem="2hb-ij-pTV" firstAttribute="leading" secondItem="bml-hI-Uh0" secondAttribute="leadingMargin" id="WZ4-IF-Brp"/>
+                            <constraint firstItem="pzr-MY-edy" firstAttribute="centerY" secondItem="bml-hI-Uh0" secondAttribute="centerY" id="uJo-VS-Eiy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UvF-CD-8we"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="ICw-Vo-7UX"/>
+                    <connections>
+                        <outlet property="createGroupButton" destination="iKV-n1-A5z" id="8wA-jA-edm"/>
+                        <outlet property="createGroupLabel" destination="2hb-ij-pTV" id="Q3x-g3-s0P"/>
+                        <outlet property="createGroupOuterView" destination="bml-hI-Uh0" id="e9k-uX-1g4"/>
+                        <outlet property="createGroupStackView" destination="pzr-MY-edy" id="TOU-FL-YRo"/>
+                        <outlet property="currentGroupNumberLabel" destination="HeC-Eh-0yj" id="3J5-fV-I1M"/>
+                        <outlet property="currentGroupNumberPicker" destination="Pu8-8H-56A" id="FxL-eD-vXK"/>
+                        <outlet property="errorTextLabel" destination="pWv-fj-S6n" id="0KA-HA-kgu"/>
+                        <outlet property="groupNameInput" destination="EZ6-BV-gar" id="9f2-CP-bYL"/>
+                        <outlet property="locationLabel" destination="K8i-8L-Tpj" id="XvB-RY-Sne"/>
+                        <outlet property="locationPicker" destination="qYJ-Dz-fCQ" id="r1G-lQ-oNw"/>
+                        <outlet property="shipNameLabel" destination="mCZ-7g-sfj" id="jL3-Fi-Afd"/>
+                        <outlet property="shipPicker" destination="Dex-qq-SKt" id="2L1-I7-oH1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtL-pr-UCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

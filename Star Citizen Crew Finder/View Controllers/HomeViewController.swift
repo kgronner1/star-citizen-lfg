@@ -49,58 +49,82 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         dispoop.enter()
         var tempGroupArray: [Group] = []
         var tempMyGroupArray: [Group] = []
-        
         let db = Firestore.firestore()
-        // read doc
-        db.collection("groups").whereField("active", isEqualTo: true).order(by: "currCount", descending: true).getDocuments{ (snapshot, error) in
         
-            if error == nil && snapshot != nil {
+        
+        
 
-                
-                //, "active", "currCount", "location", "maxPlayers", "playerList", "ship", "timeCreated"
-                
-                for document in (snapshot!.documents){
-                    //let reName = document.data()["name"] as! String
-                    let reActive = document.data()["active"] as! Bool
-                    let reCurrCount = document.data()["currCount"] as! Int
-                    let reLocation = document.data()["location"] as! String
-                    let reMaxPlayers = document.data()["maxPlayers"] as! Int
-                    let rePlayerList = document.data()["playerList"] as! [String]
-                    let reShip = document.data()["ship"] as! String
-                    let reTimeCreated = document.data()["timeCreated"] as! Int
-                    
-                    
-                    if let reName = document.data()["name"] as? String {
-                        //let user = NStore(username)
-                        let groupName = Group(name:reName, active:reActive, currCount:reCurrCount,location:reLocation, maxPlayers:reMaxPlayers, playerList: rePlayerList, ship: reShip, timeCreated: reTimeCreated, isExpanded: false)
-                        
-                        
-                        if reMaxPlayers != reCurrCount {
-                            tempGroupArray.append(groupName)
+
+                let screenName = UserDefaults.standard.string(forKey: "screenName")
+                let userEmail = UserDefaults.standard.string(forKey: "email")
+                db.collection("users").whereField("email", isEqualTo: userEmail).getDocuments{ (snapshot, error) in
+                    if error == nil && snapshot != nil {
+                        for document in (snapshot!.documents){
+                            if let reScreenName = document.data()["screenName"] as? String {
+                                if reScreenName == screenName {
+                                    var userID = document.documentID
+
+                                
+                                    // read doc
+                                    db.collection("groups").whereField("active", isEqualTo: true).order(by: "currCount", descending: true).getDocuments{ (snapshot, error) in
+                                
+                                        if error == nil && snapshot != nil {
+                                            
+                                            //, "active", "currCount", "location", "maxPlayers", "playerList", "ship", "timeCreated", "createdBy"
+                                            
+                                            for document in (snapshot!.documents){
+                                                //let reName = document.data()["name"] as! String
+                                                let reActive = document.data()["active"] as! Bool
+                                                let reCurrCount = document.data()["currCount"] as! Int
+                                                let reLocation = document.data()["location"] as! String
+                                                let reCreatedBy = document.data()["createdBy"] as? String
+                                                let reMaxPlayers = document.data()["maxPlayers"] as! Int
+                                                let rePlayerList = document.data()["playerList"] as! [String]
+                                                let reShip = document.data()["ship"] as! String
+                                                let reTimeCreated = document.data()["timeCreated"] as! Int
+                                                
+                                                
+                                                if let reName = document.data()["name"] as? String {
+                                                    //let user = NStore(username)
+                                                    let groupName = Group(name:reName, active:reActive, currCount:reCurrCount,location:reLocation, maxPlayers:reMaxPlayers, playerList: rePlayerList, ship: reShip, timeCreated: reTimeCreated, isExpanded: false, createdBy: reCreatedBy ?? "Griffin")
+                                                    print("check these")
+                                                    print(userID)
+                                                    print(reCreatedBy)
+                                                    if reCreatedBy == userID {
+                                                        tempMyGroupArray.append(groupName)
+                                                    }
+                                                    else {
+                                                        if reMaxPlayers != reCurrCount {
+                                                            tempGroupArray.append(groupName)
+                                                        }
+                                                    }
+                                                }
+                                                
+                                            }
+                                            self.dispoop.leave()
+                                            
+                                            self.dispoop.notify(queue: .main) {
+                                                self.groups = tempGroupArray
+                                                self.mygroups = tempMyGroupArray
+                                                self.tableView.reloadData()
+                                                self.myGroupsTableView.reloadData()
+                            //                    print("Count afty")
+                            //                    print(self.groups.count)
+                                            }
+                                        }
+                                    }
+                                
+                                } // screen name check
+                                else {
+                                    // delete that user entry or login?
+                                }
+                                
+                                
+                            }
                         }
-                        
-                        if reName == "new" {
-                            tempMyGroupArray.append(groupName)
-                        }
-                        
                     }
-                    
-                    
-                    
                 }
-                self.dispoop.leave()
-                
-                self.dispoop.notify(queue: .main) {
-                    self.groups = tempGroupArray
-                    self.mygroups = tempMyGroupArray
-                    self.tableView.reloadData()
-                    self.myGroupsTableView.reloadData()
-//                    print("Count afty")
-//                    print(self.groups.count)
-                }
-                
-            }
-        }
+
 
 //        return tempGroupArray
 
@@ -133,7 +157,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if tableView == myGroupsTableView {
             let grp = mygroups[indexPath.row]
-            print("truedMyGRoup")
             let cell = tableView.dequeueReusableCell(withIdentifier: "myGroupsCell") as! myGroupTableViewCell
             
             cell.setMyGroup(group: grp)
@@ -148,7 +171,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         else {
             let grp = groups[indexPath.row]
-            print("falsedOpenGroup")
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupTableViewCell
             
             cell2.setGroup(group: grp)
@@ -174,26 +196,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         print(selGroup.playerList.count)
         
-        var indexPaths = [Int]()
         for row in selGroup.playerList {
-            print(rowIndex, row)
-            
-//            Firestore.firestore().collection("users").document(row).getDocument(){ (snapshot, error) in
-//                if error == nil && snapshot != nil {
-//                    for document in (snapshot!.data()!) {
-//                        if let reScreenName = document.["screenName"] as? String {
-//                            print(reScreenName)
-//                            let indexPath = IndexPath(row: rowIndex, userID: row, screenName: reScreenName)
-//                            indexPaths.append(row)
-//                        }
-//                    }
-//                }
-//            }
-            
-            
-//            let indexPath = row
-//            indexPaths.append(rowIndex, indexPath)
-            
+            print(row)
         }
         
         // if fail
@@ -214,11 +218,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // if successful
             let alertTitle = "Hey"
             let alertMessage = "OK you join \(selGroup.name)"
-
+            getGroupDataIntoArray()
             let alert = UIAlertController(title:alertTitle, message: alertMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title:"Nice", style: .default, handler: nil ))
             present(alert, animated: true, completion: nil )
-            self.tableView.reloadData()
         // if fail
     }
     
@@ -235,11 +238,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // if successful
             let alertTitle = "Hey"
             let alertMessage = "OK you leave \(selGroup.name)"
-
+            getGroupDataIntoArray()
             let alert = UIAlertController(title:alertTitle, message: alertMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title:"Nice", style: .default, handler: nil ))
             present(alert, animated: true, completion: nil )
-            self.myGroupsTableView.reloadData()
+            
         // if fail
     }
     

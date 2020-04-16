@@ -95,7 +95,13 @@ class SignUpViewController: UIViewController {
                     // User created successfully
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["screenName": screenName, "email": userEmail, "timeCreated": NSDate().timeIntervalSince1970]) { error in
+                    // convert Date to TimeInterval (typealias for Double)
+                    let timeInterval = Date().timeIntervalSince1970
+
+                    // convert to Integer
+                    let DateAsInt = Int(timeInterval)
+                    
+                    db.collection("users").addDocument(data: ["screenName": screenName, "email": userEmail, "timeCreated": DateAsInt]) { error in
                         
                         if error != nil {
                             self.showError("Error saving user data")

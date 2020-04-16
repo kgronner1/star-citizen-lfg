@@ -18,4 +18,5 @@ struct Group {
     var ship: String
     var timeCreated: Int
     var isExpanded: Bool
+    var createdBy: String
 }

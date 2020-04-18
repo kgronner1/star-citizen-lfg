@@ -10,6 +10,8 @@
 		361CEEB9242D953900FDB379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 361CEEB8242D953800FDB379 /* GoogleService-Info.plist */; };
 		361CEEBB242FD07D00FDB379 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361CEEBA242FD07D00FDB379 /* Utilities.swift */; };
 		361CEEBD242FDE6500FDB379 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361CEEBC242FDE6500FDB379 /* Constants.swift */; };
+		36811D902442BE9A000BEBEE /* Ships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36811D8F2442BE9A000BEBEE /* Ships.swift */; };
+		36811D922442BECB000BEBEE /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36811D912442BECB000BEBEE /* Locations.swift */; };
 		368C96C82430434300EA0A00 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C96C72430434300EA0A00 /* CreateGroupViewController.swift */; };
 		368C96CA243043A500EA0A00 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C96C9243043A500EA0A00 /* ProfileViewController.swift */; };
 		368C96CC2430465F00EA0A00 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C96CB2430465F00EA0A00 /* Group.swift */; };
@@ -33,6 +35,8 @@
 		361CEEB8242D953800FDB379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		361CEEBA242FD07D00FDB379 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		361CEEBC242FDE6500FDB379 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36811D8F2442BE9A000BEBEE /* Ships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ships.swift; sourceTree = "<group>"; };
+		36811D912442BECB000BEBEE /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		368C96C72430434300EA0A00 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		368C96C9243043A500EA0A00 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		368C96CB2430465F00EA0A00 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				368C96CB2430465F00EA0A00 /* Group.swift */,
+				36811D8F2442BE9A000BEBEE /* Ships.swift */,
+				36811D912442BECB000BEBEE /* Locations.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -283,8 +289,10 @@
 				36BA05D7242AF44F00DD3EF2 /* RouterLoginViewController.swift in Sources */,
 				36BA05D3242AF44F00DD3EF2 /* AppDelegate.swift in Sources */,
 				361CEEBB242FD07D00FDB379 /* Utilities.swift in Sources */,
+				36811D922442BECB000BEBEE /* Locations.swift in Sources */,
 				36E01389243A988D00EE4EA9 /* myGroupTableViewCell.swift in Sources */,
 				368C96CC2430465F00EA0A00 /* Group.swift in Sources */,
+				36811D902442BE9A000BEBEE /* Ships.swift in Sources */,
 				36BA05E7242AF46900DD3EF2 /* SignUpViewController.swift in Sources */,
 				368C96CA243043A500EA0A00 /* ProfileViewController.swift in Sources */,
 				36BA05E9242AF47D00DD3EF2 /* LoginViewController.swift in Sources */,
